@@ -24,6 +24,15 @@ namespace NoteManagerAPI.Controllers
         
         }
 
+        [HttpGet("getNote/{id}")]
+        public Notes GetNote(int id)
+        {
+
+            var noteDAO = new NoteDAO(_context);
+            return noteDAO.GetNote(id);
+
+        }
+
 
         [HttpPost("addNotes")]
         public HttpStatusCode AddNote(Notes notes)

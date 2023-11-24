@@ -19,6 +19,13 @@ namespace NoteManagerAPI.DAO
 
         }
 
+        public Notes GetNote(int id)
+        {
+
+            return _context.Notes.Where(x => x.Id == id).FirstOrDefault();
+
+        }
+
         public void AddNote(Notes notes)
         {
             _context.Notes.Add(notes);
@@ -27,18 +34,18 @@ namespace NoteManagerAPI.DAO
 
         public void DeleteNote(int id)
         {
-            var dbNoteRemove = _context.Notes.Where(x => x.NoteId == id).FirstOrDefault();
+            var dbNoteRemove = _context.Notes.Where(x => x.Id == id).FirstOrDefault();
             _context.Notes.Remove(dbNoteRemove);
             _context.SaveChanges();
         }
 
         public void UpdateNote(Notes notes)
         {
-            var dbNoteUpdate = _context.Notes.Find(notes.NoteId);
-            dbNoteUpdate.Name = notes.Name;
-            dbNoteUpdate.Content = notes.Content;
+            var dbNoteUpdate = _context.Notes.Find(notes.Id);
+            dbNoteUpdate.Title = notes.Title;
+            dbNoteUpdate.Description = notes.Description;
             dbNoteUpdate.CategoryId = notes.CategoryId;
-            dbNoteUpdate.IsActive = notes.IsActive;
+            dbNoteUpdate.Archived = notes.Archived;
             _context.SaveChanges();
         }
     }

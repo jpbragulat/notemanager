@@ -7,21 +7,22 @@ namespace NoteManagerAPI.Models
     {
         [Key]
         [Column("note_id")]
-        public int NoteId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Column("name")]
-        public string Name { get; set;}
+        public string Title { get; set;}
 
         [Required]
         [Column("content")]
-        public string Content { get; set;}
+        public string Description { get; set;}
 
         [Required]
         [Column("is_active")]
-        public bool IsActive { get; set; }
+        public bool Archived { get; set; }
 
         [ForeignKey("Categories")]
+        [Column("category_id")]
         public int CategoryId { get; set; }
 
     }
