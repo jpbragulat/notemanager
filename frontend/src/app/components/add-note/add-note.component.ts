@@ -11,7 +11,8 @@ export class AddNoteComponent {
   tutorial: Note = {
     title: '',
     description: '',
-    archived: false
+    archived: false,
+    categoryId: 2,
   };
   submitted = false;
 
@@ -20,7 +21,9 @@ export class AddNoteComponent {
   saveTutorial(): void {
     const data = {
       title: this.tutorial.title,
-      description: this.tutorial.description
+      description: this.tutorial.description,
+      archived: this.tutorial.archived,
+      categoryId: this.tutorial.categoryId
     };
 
     this.noteService.create(data).subscribe({
@@ -37,7 +40,8 @@ export class AddNoteComponent {
     this.tutorial = {
       title: '',
       description: '',
-      archived: false
+      archived: false,
+      categoryId: 2
     };
   }
 }

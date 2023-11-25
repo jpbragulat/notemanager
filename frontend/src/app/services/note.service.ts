@@ -20,19 +20,15 @@ export class NoteService {
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl+'addNote', data);
+    return this.http.post(baseUrl+'addNotes', data);
   }
-
-  //update(id: any, data: any): Observable<any> {
-  //  return this.http.put(`${baseUrl+''}/${id}`, data);
-  //}
 
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl+'editNotes'}`, data);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrl+'delNotes'}/${id}`);
   }
 
   deleteAll(): Observable<any> {

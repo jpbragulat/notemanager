@@ -1,6 +1,6 @@
 <div *ngIf="viewMode; else editable">
   <div *ngIf="currentTutorial.id">
-    <h4>Tutorial</h4>
+    <h4>Note Details</h4>
     <div>
       <label><strong>Title:</strong></label> {{ currentTutorial.title }}
     </div>
@@ -11,6 +11,10 @@
     <div>
       <label><strong>Status:</strong></label>
       {{ currentTutorial.archived ? "Archived" : "Pending" }}
+    </div>
+    <div>
+      <label><strong>CategoryId:</strong></label>
+      {{ currentTutorial.categoryId }}
     </div>
 
     <a class="badge badge-warning"

@@ -49,7 +49,7 @@ namespace NoteManagerAPI.Controllers
             }
         }
 
-        [HttpDelete("delNotes")]
+        [HttpDelete("delNotes/{id}")]
         public HttpStatusCode DeleteNote(int id)
         {
             try

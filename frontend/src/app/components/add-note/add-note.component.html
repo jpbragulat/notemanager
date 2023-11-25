@@ -24,6 +24,28 @@
         />
       </div>
 
+      <div class="form-group">
+        <label for="archived">Status</label>
+        <input
+          class="form-control"
+          id="archived"
+          required
+          [(ngModel)]="tutorial.archived"
+          name="archived"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="categoryId">CategoryId</label>
+        <input
+          class="form-control"
+          id="categoryId"
+          required
+          [(ngModel)]="tutorial.categoryId"
+          name="categoryId"
+        />
+      </div>
+
       <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
     </div>
 
