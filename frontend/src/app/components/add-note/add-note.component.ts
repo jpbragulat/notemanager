@@ -12,7 +12,7 @@ export class AddNoteComponent {
     title: '',
     description: '',
     archived: false,
-    categoryId: 2,
+    categoryId: undefined
   };
   submitted = false;
 
@@ -40,8 +40,8 @@ export class AddNoteComponent {
     this.tutorial = {
       title: '',
       description: '',
-      archived: false,
-      categoryId: 2
+      archived: undefined,
+      categoryId: undefined
     };
   }
 }
