@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { NoteDetailsComponent } from './components/note-details/note-details.component';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
+import { AddCategComponent } from './components/add-categ/add-categ.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddNoteComponent,
     NoteDetailsComponent,
-    NotesListComponent
+    NotesListComponent,
+    AddCategComponent, 
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
