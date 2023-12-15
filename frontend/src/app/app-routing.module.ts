@@ -5,17 +5,19 @@ import { NoteDetailsComponent } from './components/note-details/note-details.com
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { AddCategComponent } from './components/add-categ/add-categ.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'notemanager', pathMatch: 'full' },
   { path: 'notemanager', component: NotesListComponent },
-  { path: 'notemanager/:id', component: NoteDetailsComponent },
-  { path: 'notemanager/addnote', component: AddNoteComponent },
-  { path: 'notemanager/addcategory', component: AddCategComponent},
-  { path: 'notemanager/categorylist', component: CategoryListComponent}
- 
+  { path: 'editnotes/:id', component: NoteDetailsComponent },
+  { path: 'editcategories/:id', component: CategoryDetailsComponent},
+  { path: 'addnotes', component: AddNoteComponent },
+  { path: 'addcategories', component: AddCategComponent},
+  { path: 'getcategories', component: CategoryListComponent}
   
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

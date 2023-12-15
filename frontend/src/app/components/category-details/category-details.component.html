@@ -1,0 +1,71 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentNoteCateg.id">
+      <h4>Category Details</h4>
+      <div>
+        <label><strong>Category Name:</strong></label> {{ currentNoteCateg.categoryName }}
+      </div>
+      <div>
+        <label><strong>Category Description:</strong></label>
+        {{ currentNoteCateg.categoryDescription }}
+      </div>
+      
+      <a class="badge badge-warning"
+        routerLink="/editcategories/{{ currentNoteCateg.id }}">
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentNoteCateg">
+      <br />
+      <p>Please click on a Category...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentNoteCateg.id" class="edit-form">
+      <h4>Category Edit</h4>
+      <form>
+        <div class="form-group">
+          <label for="categoryName">Category Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentNoteCateg.categoryName"
+            name="categoryName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="categoryDescription">Category Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="categoryDescription"
+            [(ngModel)]="currentNoteCateg.categoryDescription"
+            name="categoryDescription"
+          />
+        </div>
+  
+      </form>
+  
+  
+      <button class="badge badge-danger mr-2" (click)="deleteCategory()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateCategory()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentNoteCateg.id">
+      <br />
+      <p>Cannot access this Category...</p>
+    </div>
+  </ng-template>
+  
