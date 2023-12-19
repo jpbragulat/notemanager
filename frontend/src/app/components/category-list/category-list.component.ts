@@ -36,8 +36,11 @@ export class CategoryListComponent {
   }
 
   setActiveNoteCateg(noteCategAux: Category, index: number): void {
+    console.log("valor: ", noteCategAux);
     this.currentNoteCateg = noteCategAux;
+    console.log("valor current:", this.currentNoteCateg);
     this.currentNoteCategIndex = index;
+    console.log("valor current index: ",this.currentNoteCategIndex);
   }
 
   removeAllNoteCateg(): void {

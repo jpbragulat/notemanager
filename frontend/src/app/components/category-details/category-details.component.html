@@ -1,16 +1,21 @@
+
+<!--
+
 <div *ngIf="viewMode; else editable">
-    <div *ngIf="currentNoteCateg.id">
+    <div *ngIf="this.currentNoteCateg.id">
+      
       <h4>Category Details</h4>
-      <div>
-        <label><strong>Category Name:</strong></label> {{ currentNoteCateg.categoryName }}
+      
+      <div> 
+        <label><strong>Category Name:</strong></label> {{ this.currentNoteCateg.categoryName }}
       </div>
       <div>
         <label><strong>Category Description:</strong></label>
-        {{ currentNoteCateg.categoryDescription }}
+        {{ this.currentNoteCateg.categoryDescription }}
       </div>
       
       <a class="badge badge-warning"
-        routerLink="/editcategories/{{ currentNoteCateg.id }}">
+        routerLink="/editcategories/{{ this.currentNoteCateg.id }}">
         Edit
       </a>
     </div>
@@ -68,4 +73,17 @@
       <p>Cannot access this Category...</p>
     </div>
   </ng-template>
-  
+-->
+
+<h2>Category</h2>
+<div> 
+  <label><strong>Category Name:</strong></label> {{ this.currentNoteCateg.categoryName }}
+</div>
+<div>
+  <label><strong>Category Description:</strong></label>
+  {{ this.currentNoteCateg.categoryDescription }}
+</div>
+<a class="badge badge-warning"
+        routerLink="/editcategories/{{ this.currentNoteCateg.id }}">
+        Edit
+      </a>
