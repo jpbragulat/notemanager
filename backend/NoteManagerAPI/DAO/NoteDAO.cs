@@ -28,6 +28,12 @@ namespace NoteManagerAPI.DAO
 
         public void AddNote(Notes notes)
         {
+
+            if (_context.Notes.Where(x => x.CategoryId == notes.CategoryId).FirstOrDefault() == null){
+
+                notes.CategoryId = 2;
+
+            }   
             _context.Notes.Add(notes);
             _context.SaveChanges();
         }

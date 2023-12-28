@@ -7,7 +7,7 @@ namespace NoteManagerAPI.Models
     {
         [Key]
         [Column("category_id")]
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Column("category_name")]

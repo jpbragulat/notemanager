@@ -45,3 +45,4 @@ C:\Users\stir38\source\repos\NoteManager\notemanager\backend\NoteManagerAPI\obj\
 C:\Users\stir38\source\repos\NoteManager\notemanager\backend\NoteManagerAPI\obj\Debug\net6.0\NoteManagerAPI.pdb
 C:\Users\stir38\source\repos\NoteManager\notemanager\backend\NoteManagerAPI\obj\Debug\net6.0\NoteManagerAPI.genruntimeconfig.cache
 C:\Users\stir38\source\repos\NoteManager\notemanager\backend\NoteManagerAPI\obj\Debug\net6.0\ref\NoteManagerAPI.dll
+C:\Users\stir38\source\repos\NoteManager\notemanager\backend\NoteManagerAPI\obj\Debug\net6.0\NoteManagerAPI.sourcelink.json

@@ -28,7 +28,16 @@ namespace NoteManagerAPI.Controllers
              return categoryDAO.GetCategories().ToList();
             
         }
-          
+
+        [HttpGet("getCategories/{id}")]
+        public Categories GetCategory(int id)
+        {
+
+            var categoryDAO = new CategoriesDAO(_context);
+            return categoryDAO.GetCategory(id);
+
+        }
+
 
         [Route("addCategories")]
         [HttpPost]
@@ -47,7 +56,7 @@ namespace NoteManagerAPI.Controllers
 
         }
 
-        [Route("delCategories")]
+        [Route("delCategories/{id}")]
         [HttpDelete]
         public HttpStatusCode DeleteCategories(int id)
         {
@@ -62,7 +71,7 @@ namespace NoteManagerAPI.Controllers
             }
         }
 
-        [Route("updateCategories")]
+        [Route("editCategories")]
         [HttpPut]
         public HttpStatusCode PutCategories(Categories categories)
         {

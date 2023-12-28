@@ -18,6 +18,13 @@ namespace NoteManagerAPI.DAO
 
         }
 
+        public Categories GetCategory(int id)
+        {
+
+            return _context.Categories.Where(x => x.Id == id).FirstOrDefault();
+
+        }
+
         public void AddCategory(Categories category)
         {
             _context.Categories.Add(category);
@@ -27,14 +34,14 @@ namespace NoteManagerAPI.DAO
 
         public void RemoveCategory(int id)
         {
-            var dbCategoryRemove = _context.Categories.Where(x => x.CategoryId == id).FirstOrDefault();
+            var dbCategoryRemove = _context.Categories.Where(x => x.Id == id).FirstOrDefault();
             _context.Categories.Remove(dbCategoryRemove);
             _context.SaveChanges();
         }
 
         public void EditCategory(Categories category)
         {
-            var dbCategoryUpdate = _context.Categories.Find(category.CategoryId);
+            var dbCategoryUpdate = _context.Categories.Find(category.Id);
             dbCategoryUpdate.CategoryName = category.CategoryName;
             dbCategoryUpdate.CategoryDescription = category.CategoryDescription;
             _context.SaveChanges();
