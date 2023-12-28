@@ -28,6 +28,9 @@ import { CategoryService } from 'src/app/services/category.service';
     ) {}
 
     ngOnInit(): void {
+      console.log("viewMode Value: ", this.viewMode);
+      //this.viewMode = false;
+      console.log("viewMode Value: ", this.viewMode);
         if (!this.viewMode) {
           this.message = '';
           this.getCategory(this.route.snapshot.params['id']);
@@ -35,6 +38,7 @@ import { CategoryService } from 'src/app/services/category.service';
       }
     
       getCategory(id: string): void {
+        console.log("inside getCategory");
         this.categoryService.get(id).subscribe({
             next: (data) => {
                 this.currentNoteCateg = data;
@@ -47,6 +51,7 @@ import { CategoryService } from 'src/app/services/category.service';
       
       updateCategory(): void {
         this.message = '';
+        console.log("inside updateCategory");
         this.categoryService
         .update(this.currentNoteCateg.id, this.currentNoteCateg)
         .subscribe({
@@ -62,6 +67,7 @@ import { CategoryService } from 'src/app/services/category.service';
       }
 
       deleteCategory(): void {
+        console.log("category id a borrar: ", this.currentNoteCateg.id);
         this.categoryService.delete(this.currentNoteCateg.id).subscribe({
             next: (res) => {
                 console.log(res);

@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'editcategories/:id', component: CategoryDetailsComponent},
   { path: 'addnotes', component: AddNoteComponent },
   { path: 'addcategories', component: AddCategComponent},
-  { path: 'getcategories', component: CategoryListComponent}
+  { path: 'getcategories', component: CategoryListComponent},
+  { path: 'delcategories/:id', component: CategoryDetailsComponent}
   
 ];
   

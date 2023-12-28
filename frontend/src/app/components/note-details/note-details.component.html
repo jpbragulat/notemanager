@@ -55,6 +55,13 @@
       </div>
 
       <div class="form-group">
+        <label for="categoryId">Note Category</label>
+        <select class="form-control" id="categoryId" [(ngModel)]="currentTutorial.categoryId" name="categoryId">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.categoryName }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label><strong>Status:</strong></label>
         {{ currentTutorial.archived ? "Archived" : "Pending" }}
       </div>

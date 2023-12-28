@@ -2,6 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from 'src/app/models/note.model';
+import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/services/category.service';
+
+
 
 @Component({
   selector: 'app-note-details',
@@ -17,19 +21,34 @@ export class NoteDetailsComponent {
     archived: false
   };
 
+  categories: Category[] = [];
   message = '';
 
   constructor(
     private noteService: NoteService,
+    private categoryService: CategoryService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+  
 
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
       this.getTutorial(this.route.snapshot.params['id']);
+      this.getAllCategories();
     }
+  }
+
+  getAllCategories(): void {
+    console.log("getAllCategories");
+    this.categoryService.getAll().subscribe({
+      next: (data) => {
+        this.categories = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
   }
 
   getTutorial(id: string): void {

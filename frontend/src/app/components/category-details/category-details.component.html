@@ -75,15 +75,70 @@
   </ng-template>
 -->
 
-<h2>Category</h2>
-<div> 
-  <label><strong>Category Name:</strong></label> {{ this.currentNoteCateg.categoryName }}
-</div>
+<div *ngIf="viewMode; else editable">
+<div *ngIf="this.currentNoteCateg.id">
 <div>
-  <label><strong>Category Description:</strong></label>
-  {{ this.currentNoteCateg.categoryDescription }}
-</div>
-<a class="badge badge-warning"
+  <h2>Category</h2>
+  <div> 
+    <label><strong>Category Name:</strong></label> {{ this.currentNoteCateg.categoryName }}
+  </div>
+  <div>
+    <label><strong>Category Description:</strong></label>
+    {{ this.currentNoteCateg.categoryDescription }}
+  </div>
+  <a class="badge badge-warning"
         routerLink="/editcategories/{{ this.currentNoteCateg.id }}">
         Edit
-      </a>
+  </a>
+</div>
+
+<div *ngIf="!this.currentNoteCateg.id">
+  <br />
+  <p>Please click on a Category</p>
+</div>
+</div>
+</div>
+
+<ng-template #editable>
+<div>
+  <p>Testing</p>
+  <h2>Category</h2>
+  <div> 
+    <label><strong>Category Name:</strong></label> {{ this.currentNoteCateg.categoryName }}
+    <input
+            type="text"
+            class="form-control"
+            id="categoryName"
+            [(ngModel)]="currentNoteCateg.categoryName"
+            name="categoryName"
+          />
+  </div>
+  <div>
+    <label><strong>Category Description:</strong></label>
+    {{ this.currentNoteCateg.categoryDescription }}
+    <input
+            type="text"
+            class="form-control"
+            id="categoryDescription"
+            [(ngModel)]="currentNoteCateg.categoryDescription"
+            name="categoryDescription"
+          />
+  </div>
+  <a class="badge badge-warning"
+        routerLink="/editcategories/{{ this.currentNoteCateg.id }}">
+        Edit
+  </a>
+  <button class="badge badge-danger mr-2" (click)="deleteCategory()">
+    Delete
+  </button>
+  <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateCategory()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+</div>
+
+</ng-template>
