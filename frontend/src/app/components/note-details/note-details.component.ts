@@ -35,8 +35,9 @@ export class NoteDetailsComponent {
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
-      this.getTutorial(this.route.snapshot.params['id']);
+      console.log("ngOnInit");
       this.getAllCategories();
+      this.getTutorial(this.route.snapshot.params['id']);
     }
   }
 
@@ -49,7 +50,26 @@ export class NoteDetailsComponent {
       },
       error: (e) => console.error(e)
     });
+
   }
+
+  getCategoryName(categoryId: number): string {
+    //this.getAllCategories(); //asi funca pero lopea... porq no sale del ngoninit?
+    console.log("categoryId:", categoryId);
+    let i;
+    
+    const category = this.categories.find((c) => c.id === categoryId);
+    console.log("categories:", this.categories); // porq esta vacio?
+    console.log("Categoria Encontrada:", category);
+    if (category) {
+      console.log("getCategoryName:", category);
+      return category.categoryName!; //asi no jode el undefined xq si no retorna string explota
+    } 
+    else {
+      return 'unknown category';
+    }
+  }
+
 
   getTutorial(id: string): void {
     this.noteService.get(id).subscribe({

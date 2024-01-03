@@ -12,9 +12,11 @@
       <label><strong>Status:</strong></label>
       {{ currentTutorial.archived ? "Archived" : "Pending" }}
     </div>
+
+    <!-- porq no puedo llamar category.categoryName -->
     <div>
       <label><strong>CategoryId:</strong></label>
-      {{ currentTutorial.categoryId }}
+      {{ getCategoryName(currentTutorial.categoryId!) }}
     </div>
 
     <a class="badge badge-warning"

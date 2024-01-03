@@ -37,14 +37,10 @@
       </div>
 
       <div class="form-group">
-        <label for="categoryId">CategoryId</label>
-        <input
-          class="form-control"
-          id="categoryId"
-          required
-          [(ngModel)]="tutorial.categoryId"
-          name="categoryId"
-        />
+        <label for="categoryId">Note Category</label>
+        <select class="form-control" id="categoryId" [(ngModel)]="tutorial.categoryId" name="categoryId">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.categoryName }}</option>
+        </select>
       </div>
 
       <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
