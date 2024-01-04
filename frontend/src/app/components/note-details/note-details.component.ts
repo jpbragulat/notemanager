@@ -56,8 +56,6 @@ export class NoteDetailsComponent {
   getCategoryName(categoryId: number): string {
     //this.getAllCategories(); //asi funca pero lopea... porq no sale del ngoninit?
     console.log("categoryId:", categoryId);
-    let i;
-    
     const category = this.categories.find((c) => c.id === categoryId);
     console.log("categories:", this.categories); // porq esta vacio?
     console.log("Categoria Encontrada:", category);
